@@ -20,7 +20,11 @@ def printBoard(bo):
 
 def filldetails(bo,player):
     pos=int(input(f"Enter the  position of '{player}' in range of 1-9\n"))
-    bo[pos-1]=player
+    if bo[pos-1]=='X' or bo[pos-1]=='O':
+        print("Already filled!")
+        filldetails(bo,player)
+    else:
+        bo[pos-1]=player
 
 
 # Checking if a player Won or not
